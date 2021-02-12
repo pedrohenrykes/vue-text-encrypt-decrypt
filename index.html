@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encrypt and Decrypt</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="header-title">
+      Encrypt and decrypt a text
+    </h1>
+  </header>
+
+  <main id="main">
+
+    <section class="forms-section">
+
+      <div class="form-box">
+        <img src="assets/imgs/locked-padlock.png" alt="locked">
+        <h2 class="title">Encrypt</h2>
+        <p class="subtitle">Typing a text to encrypt</p>
+
+        <form v-on:submit.prevent="encrypting">
+          <input type="text" v-model="encryptTextInput" placeholder="Type a text">
+          <input type="submit" value="Encrypt">
+        </form>
+      </div>
+
+      <div class="form-box">
+        <img src="assets/imgs/padlock.png" alt="unlocked">
+        <h2 class="title">Decrypt</h2>
+        <p class="subtitle">Typing a text to decrypt</p>
+
+        <form v-on:submit.prevent="decrypting">
+          <input type="text" v-model="decryptTextInput" placeholder="Type a text">
+          <input type="submit" value="Decrypt">
+        </form>
+      </div>
+
+    </section>
+
+    <section v-if="resultText.length > 0" class="message-box">
+      <h4 class="subtitle">{{ resultTitle }}</h4>
+      <h3>{{ resultText }}</h3>
+    </section>
+
+    <section v-if="errorMessage.length > 0" class="message-box">
+      <h3 class="error-msg">{{ errorMessage }}</h3>
+    </section>
+
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>
