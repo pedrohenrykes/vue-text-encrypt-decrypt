@@ -11,6 +11,8 @@ const app = new Vue({
       encrypting: function(event) {
         event.preventDefault();
 
+        this.decryptTextInput = "";
+
         if ( this.encryptTextInput.length > 0 ) {
           this.resultTitle = 'Text encrypted';
           this.resultText = btoa(this.encryptTextInput)
@@ -27,6 +29,8 @@ const app = new Vue({
       },
       decrypting: function(event) {
         event.preventDefault();
+
+        this.encryptTextInput = "";
 
         const verify64base = this.verify64base(this.decryptTextInput);
 
